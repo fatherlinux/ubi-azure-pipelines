@@ -1,0 +1,2 @@
+FROM quay.io/fatherlinux/ubi-azure-pipelines-source
+RUN yum update -y; yum clean all
