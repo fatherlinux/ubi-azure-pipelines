@@ -1,0 +1,26 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+        imageName: 'registry.access.redhat.com/ubi8/ubi'
+        serviceConnection: 'quayServiceConnection'
+
+steps:
+- task: Docker@2
+  displayName: Build from Red Hat Universal Base Image
+  inputs:
+    command: build
+    containerRegistry: $(serviceConnection)
+    repository: $(imageName)
+    Dockerfile: Dockerfile-build
+    tags: latest
+- task: Docker@2
+  displayName: Push image to quay.io
+  inputs:
+    command: push
+    containerRegistry: $(serviceConnection)
+    repository: $(imageName)
+    tags: latest
