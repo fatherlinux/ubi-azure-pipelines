@@ -17,8 +17,7 @@ steps:
 - task: Docker@2
   displayName: Push image to quay.io
   inputs:
-    containerRegistry: |
-      $(quayServiceConnection)
+    containerRegistry: quayServiceConnection
     repository: $(imageName)
     command: push
     tags: |
