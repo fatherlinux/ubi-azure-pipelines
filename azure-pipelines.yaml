@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'fatherlinux/ubi-azure-pipelines-build'
+  imageName: 'quay.io/fatherlinux/ubi-azure-pipelines-build'
 
 steps:
 - task: Docker@2
@@ -15,9 +15,12 @@ steps:
     command: build
     Dockerfile: Dockerfile-build
 - task: Docker@2
-  displayName: Push image to quay.io
   inputs:
     containerRegistry: quayServiceConnection
+    command: login
+- task: Docker@2
+  displayName: Push image to quay.io
+  inputs:
     repository: $(imageName)
     command: push
     tags: |
