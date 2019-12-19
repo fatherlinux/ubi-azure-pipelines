@@ -14,3 +14,13 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: Dockerfile-build
+- task: Docker@3
+  displayName: Push image to quay.io
+  inputs:
+    containerRegistry: |
+      $(quay.io)
+    repository: $(imageName)
+    command: push
+    tags: |
+      test1
+      test2
