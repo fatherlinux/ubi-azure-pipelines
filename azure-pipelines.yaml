@@ -15,6 +15,7 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: Dockerfile-build
+    tags: latest
 - task: Docker@2
   displayName: Push image to quay.io
   inputs:
