@@ -5,7 +5,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-        imageName: 'https://quay.io/fatherlinux/ubi-azure-pipelines-build'
+        imageName: 'quay.io/fatherlinux/ubi-azure-pipelines-build'
+        serviceConnection: 'quayServiceConnection'
 
 steps:
 - task: Docker@2
@@ -18,7 +19,6 @@ steps:
   displayName: Push image to quay.io
   inputs:
     repository: $(imageName)
-    containerRegistry: quayServiceConnection
     command: push
     tags: |
       ubiTest1
