@@ -19,7 +19,11 @@ steps:
 - task: Docker@2
   displayName: Push image to quay.io
   inputs:
-    repository: $(imageName)
     containerRegistry: $(serviceConnection)
+    command: login
+- task: Docker@2
+  displayName: Push image to quay.io
+  inputs:
+    repository: $(imageName)
     command: push
     tags: latest
