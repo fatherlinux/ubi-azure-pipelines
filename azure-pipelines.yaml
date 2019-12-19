@@ -20,6 +20,4 @@ steps:
   inputs:
     repository: $(imageName)
     command: push
-    tags: |
-      ubiTest1
-      ubiTest2
+    tags: latest
