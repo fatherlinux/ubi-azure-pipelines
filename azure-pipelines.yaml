@@ -20,5 +20,6 @@ steps:
   displayName: Push image to quay.io
   inputs:
     repository: $(imageName)
+    containerRegistry: $(serviceConnection)
     command: push
     tags: latest
