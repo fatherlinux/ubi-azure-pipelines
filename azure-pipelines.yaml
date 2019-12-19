@@ -12,18 +12,18 @@ steps:
 - task: Docker@2
   displayName: Build from Red Hat Universal Base Image
   inputs:
-    repository: $(imageName)
     command: build
+    repository: $(imageName)
     Dockerfile: Dockerfile-build
     tags: latest
 - task: Docker@2
-  displayName: Push image to quay.io
+  displayName: Log in to quay.io
   inputs:
-    containerRegistry: $(serviceConnection)
     command: login
+    containerRegistry: $(serviceConnection)
 - task: Docker@2
   displayName: Push image to quay.io
   inputs:
-    repository: $(imageName)
     command: push
+    repository: $(imageName)
     tags: latest
