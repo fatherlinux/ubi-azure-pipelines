@@ -5,8 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-        #        imageName: 'fatherlinux/ubi-azure-pipelines-build'
-        imageName: 'registry.access.redhat.com/ubi8/ubi'
+        imageName: 'fatherlinux/ubi-azure-pipelines-build'
         serviceConnection: 'quayServiceConnection'
 
 steps:
