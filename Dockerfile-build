@@ -1,3 +1,3 @@
 #FROM quay.io/fatherlinux/ubi-azure-pipelines-source
 FROM registry.access.redhat.com/ubi8/ubi
-RUN yum update -y; yum clean all
+RUN yum update -y; yum install ssh; yum clean all
